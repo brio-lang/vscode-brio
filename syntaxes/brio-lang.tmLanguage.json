@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Brio",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments-inline"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.brio-lang",
+				"match": "@|\\b(if|while|for|return|new|class|method|let|or|and|else|elseif|while|for|public|private|protected|try|catch|raise|as|import|from|skip|super|none|each)\\b"
+			},
+			{
+				"match": "(<<|>>)",
+				"name": "keyword.operator.bitwise.brio-lang"
+			},
+			{
+				"match": "((&|\\||<<)=)",
+				"name": "keyword.operator.assignment.bitwise.brio-lang"
+			},
+			{
+				"match": "(!=|<=|>=|<>|<|>|==)",
+				"name": "keyword.operator.comparison.brio-lang"
+			},
+			{
+				"match": "([+*/%-]=)",
+				"name": "keyword.operator.assignment.arithmetic.brio-lang"
+			},
+			{
+				"match": "(=)",
+				"name": "keyword.operator.assignment.brio-lang"
+			}]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b([0-9]+)"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.brio-lang",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.brio-lang",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments-inline": {
+			"patterns": [
+				{
+					"begin": "#",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.brio-lang"
+						}
+					},
+					"end": "\n",
+					"name": "comment.block.brio-lang"
+				}
+			]
+		}
+	},
+	"scopeName": "source.brio-lang"
+}

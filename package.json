@@ -1,0 +1,32 @@
+{
+    "name": "brio",
+    "displayName": "Brio",
+    "description": "The Brio Programming Language extension",
+    "version": "1.0.0",
+    "icon": "images/brio-icon-128x128.png",
+    "engines": {
+        "vscode": "^1.54.0"
+    },
+    "repository": "https://github.com/brio-lang/vscode-brio",
+    "keywords": ["Brio", "Lang", "brio-lang"],
+    "publisher": "brio-lang",
+    "author": {
+        "name": "Trent Seed"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "brio",
+            "aliases": ["Brio", "brio"],
+            "extensions": [".brio"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "brio",
+            "scopeName": "source.brio-lang",
+            "path": "./syntaxes/brio-lang.tmLanguage.json"
+        }]
+    }
+}
