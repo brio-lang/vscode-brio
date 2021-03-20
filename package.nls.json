@@ -1,0 +1,6 @@
+{
+	"brio.command.brio.startREPL.title": "Start REPL",
+	"brio.command.brio.execInTerminal.title": "Run Brio File in Terminal",
+	"brio.command.brio.setInterpreter.title": "Select Interpreter",
+	"brio.command.brio.clearInterpreter.title": "Clear Interpreter"
+}

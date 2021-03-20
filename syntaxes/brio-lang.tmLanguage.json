@@ -6,10 +6,25 @@
 			"include": "#keywords"
 		},
 		{
-			"include": "#strings"
+			"include": "#strings-single"
+		},
+		{
+			"include": "#strings-double"
 		},
 		{
 			"include": "#numbers"
+		},
+		{
+			"include": "#builtin-types"
+		},
+		{
+			"include": "#builtin-function-calls"
+		},
+		{
+			"include": "#errors_warnings_exceptions"
+		},
+		{
+			"include": "#comments-multiline"
 		},
 		{
 			"include": "#comments-inline"
@@ -50,7 +65,18 @@
 				}
 			]
 		},
-		"strings": {
+		"strings-single": {
+			"name": "string.quoted.single.brio-lang",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.brio-lang",
+					"match": "\\\\."
+				}
+			]
+		},
+		"strings-double": {
 			"name": "string.quoted.double.brio-lang",
 			"begin": "\"",
 			"end": "\"",
@@ -58,6 +84,27 @@
 				{
 					"name": "constant.character.escape.brio-lang",
 					"match": "\\\\."
+				}
+			]
+		},
+		"builtin-function-calls": {
+			"match": "(print|size|open|close|range|traceback|input|exit|boolean|string|integer|decimal|arg|httpGet|httpPost)",
+			"name": "support.function.builtin.call.brio-lang"
+		},
+		"builtin-types": {
+			"match": "(Integer|Decimal|String|Boolean|Array|Dictionary|None|File|Socket)",
+			"name": "support.type.brio-lang"
+		},
+		"errors_warnings_exceptions": {
+			"match": "(BaseException|ClassException|Exception|LexerError|ParserError|RecognitionException|MismatchedTokenException|SyntaxError|ArithmeticError|BufferError|IOError|LookupError|AttributeError|EOFError|ImportError|ModuleNotFoundError|IndexError|KeyError|KeyboardInterrupt|MemoryError|NameError|NotImplementedError|OSError|OverflowError|RecursionError|RuntimeError|SystemError|TypeError|ValueError|ZeroDivisionError|FileExistsError|FileNotFoundError|TimeoutError)",
+			"name": "support.type.exception.brio-lang"
+		},
+		"comments-multiline": {
+			"patterns": [
+				{
+					"begin": "###",
+					"end": "###",
+					"name": "comment.block.brio-lang"
 				}
 			]
 		},
@@ -71,7 +118,7 @@
 						}
 					},
 					"end": "\n",
-					"name": "comment.block.brio-lang"
+					"name": "comment.line.brio-lang"
 				}
 			]
 		}

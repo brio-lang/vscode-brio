@@ -2,13 +2,22 @@
     "name": "brio",
     "displayName": "Brio",
     "description": "The Brio Programming Language extension",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "icon": "images/brio-icon-128x128.png",
     "engines": {
         "vscode": "^1.54.0"
     },
-    "repository": "https://github.com/brio-lang/vscode-brio",
-    "keywords": ["Brio", "Lang", "brio-lang"],
+    "license": "BSD",
+    "homepage": "https://github.com/brio-lang/vscode-brio",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/brio-lang/vscode-brio"
+    },
+    "keywords": [
+        "brio",
+        "brio lang",
+        "brio-lang"
+    ],
     "publisher": "brio-lang",
     "author": {
         "name": "Trent Seed"
@@ -16,17 +25,114 @@
     "categories": [
         "Programming Languages"
     ],
+    "scripts": {
+        "compile": "webpack",
+        "watch": "webpack --watch"
+    },
+    "main": "./dist/extension.js",
+    "activationEvents": [
+        "onLanguage:brio",
+        "onCommand:brio.startREPL",
+        "onCommand:brio.execInTerminal",
+        "onCommand:brio.execInTerminal-icon",
+        "onCommand:brio.setInterpreter",
+        "onCommand:brio.clearInterpreter"
+    ],
     "contributes": {
-        "languages": [{
-            "id": "brio",
-            "aliases": ["Brio", "brio"],
-            "extensions": [".brio"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "brio",
-            "scopeName": "source.brio-lang",
-            "path": "./syntaxes/brio-lang.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "brio",
+                "aliases": [
+                    "Brio",
+                    "brio"
+                ],
+                "extensions": [
+                    ".brio"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "brio",
+                "scopeName": "source.brio-lang",
+                "path": "./syntaxes/brio-lang.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "brio.startREPL",
+                "title": "%brio.command.brio.startREPL.title%",
+                "category": "Brio"
+            },
+            {
+                "command": "brio.execInTerminal",
+                "title": "%brio.command.brio.execInTerminal.title%",
+                "category": "Brio"
+            },
+            {
+                "command": "brio.setInterpreter",
+                "title": "%brio.command.brio.setInterpreter.title%",
+                "category": "Brio"
+            },
+            {
+                "command": "brio.clearInterpreter",
+                "title": "%brio.command.brio.clearInterpreter.title%",
+                "category": "Brio"
+            },
+            {
+                "command": "brio.execInTerminal-icon",
+                "title": "%brio.command.brio.execInTerminal.title%",
+                "category": "Brio",
+                "icon": {
+                    "light": "images/play_green.svg",
+                    "dark": "images/play_green.svg"
+                }
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Brio",
+            "properties": {
+                "brio.defaultInterpreterPath": {
+                    "type": "string",
+                    "default": "brio",
+                    "description": "Path to Brio, you can use a custom version of Brio by modifying this setting to include the full path.",
+                    "scope": "machine"
+                }
+            }
+        },
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "resourceLangId == brio",
+                    "command": "brio.execInTerminal",
+                    "group": "Brio"
+                }
+            ],
+            "editor/title/run": [
+                {
+                    "command": "brio.execInTerminal-icon",
+                    "title": "%brio.command.brio.execInTerminal.title%",
+                    "group": "navigation",
+                    "when": "resourceLangId == brio && !isInDiffEditor"
+                }
+            ]
+        }
+    },
+    "__metadata": {
+        "id": "5048ca0c-8966-4c98-bae3-f3d96eb02bb7",
+        "publisherDisplayName": "The Brio Programming Language",
+        "publisherId": "1ee6b05b-20ca-42ae-914b-b6c4f562d6bf"
+    },
+    "dependencies": {
+        "ts-loader": "^8.0.14",
+        "typescript": "^4.1.3",
+        "vscode-nls-dev": "^3.3.2",
+        "webpack": "^5.19.0",
+        "webpack-cli": "^4.4.0"
+    },
+    "devDependencies": {
+        "vscode": "^1.1.37"
     }
 }
