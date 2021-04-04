@@ -55,6 +55,10 @@
 			{
 				"match": "(=)",
 				"name": "keyword.operator.assignment.brio-lang"
+			},
+			{
+				"match": "\\b(true|false)",
+				"name": "constant.language.brio-lang"
 			}]
 		},
 		"numbers": {
@@ -88,15 +92,15 @@
 			]
 		},
 		"builtin-function-calls": {
-			"match": "(print|size|open|close|range|traceback|input|exit|boolean|string|integer|decimal|arg|httpGet|httpPost)",
+			"match": "\\b(print|size|open|close|range|traceback|input|exit|boolean|string|integer|decimal|arg|httpGet|httpPost|getEnv)",
 			"name": "support.function.builtin.call.brio-lang"
 		},
 		"builtin-types": {
-			"match": "(Integer|Decimal|String|Boolean|Array|Dictionary|None|File|Socket)",
+			"match": "\\b(Integer|Decimal|String|Boolean|Array|Dictionary|None|File|Socket)",
 			"name": "support.type.brio-lang"
 		},
 		"errors_warnings_exceptions": {
-			"match": "(BaseException|ClassException|Exception|LexerError|ParserError|RecognitionException|MismatchedTokenException|SyntaxError|ArithmeticError|BufferError|IOError|LookupError|AttributeError|EOFError|ImportError|ModuleNotFoundError|IndexError|KeyError|KeyboardInterrupt|MemoryError|NameError|NotImplementedError|OSError|OverflowError|RecursionError|RuntimeError|SystemError|TypeError|ValueError|ZeroDivisionError|FileExistsError|FileNotFoundError|TimeoutError)",
+			"match": "\\b(BaseException|ClassException|Exception|LexerError|ParserError|RecognitionException|MismatchedTokenException|SyntaxError|ArithmeticError|BufferError|IOError|LookupError|AttributeError|EOFError|ImportError|ModuleNotFoundError|IndexError|KeyError|KeyboardInterrupt|MemoryError|NameError|NotImplementedError|OSError|OverflowError|RecursionError|RuntimeError|SystemError|TypeError|ValueError|ZeroDivisionError|FileExistsError|FileNotFoundError|TimeoutError)",
 			"name": "support.type.exception.brio-lang"
 		},
 		"comments-multiline": {

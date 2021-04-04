@@ -32,6 +32,10 @@ Open the Command Palette and enter one of the following commands:
 
 ## Release Notes
 
+### 1.1.1
+
+- Added improvements to syntax highlighting.
+
 ### 1.1.0
 
 - Added the following commands:

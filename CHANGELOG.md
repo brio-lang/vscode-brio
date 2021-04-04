@@ -2,6 +2,10 @@
 
 All notable changes to the "brio" extension will be documented in this file.
 
+### 1.1.1
+
+- Added improvements to syntax highlighting.
+
 ### 1.1.0
 
 - Added the following commands:
